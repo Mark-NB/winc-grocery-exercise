@@ -1,16 +1,31 @@
 import React from "react"
 
 function ListItem(props) {
-    return (
-        <li
-            key={props.id}
-            className="list-item"
-            onClick={props.clickItem}
-            value={props.value}
-        >
-            {props.value}
-        </li>
-    )
+    if (props.shoppingCart) {
+        return (
+            <li
+                className="list-item"
+                id={props.props.id}
+                title={props.props.title}
+                amount={props.props.amount}
+                onClick={props.handleClickGroceryItem}
+            >
+                {props.props.title} - amount : {props.props.amount}
+            </li>
+        )
+    } else {
+        return (
+            <li
+                className="list-item"
+                id={props.props.id}
+                title={props.props.title}
+                amount={props.props.amount}
+                onClick={props.handleClickGroceryItem}
+            >
+                {props.props.title}
+            </li>
+        )
+    }
 }
 
 export default ListItem
